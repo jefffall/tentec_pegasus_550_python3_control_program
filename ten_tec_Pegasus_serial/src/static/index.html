@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>remote_transceiver</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body style="text-align: center;font-size: 20px;">
+    <section style="height: 373px;">
+        <div class="container" style="height: 161px;">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="am" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">AM</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="lsb" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">LSB</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="usb" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">USB</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="cw" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">CW</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="fm" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">FM</button></div>
+                <div class="col" style="height: 31px;">
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="agc" type="button" style="height: 33px;">AGC</button>
+                        <div class="dropdown-menu" id="agc_pick"><a class="dropdown-item" href="#">SLOW</a><a class="dropdown-item" href="#">MEDIUM</a><a class="dropdown-item" href="#">FAST</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 5px;">
+                <div class="col" style="height: 5px;">
+                    <p id="band_info" style="height: 5px;">Paragraph</p>
+                </div>
+            </div>
+            <div class="row" style="height: 80px;">
+                <div class="col"></div>
+                <div class="col"><button class="btn btn-primary" id="remote_audio_on" type="button" style="margin: 40px;width: 46.3438px;">RX</button></div>
+                <div class="col"><button class="btn btn-primary" id="minus" type="button" style="height: 35px;width: 38.0312px;margin: 40px;">-</button></div>
+                <div class="col" style="height: 78px;">
+                    <p id="myfreq" style="margin: 27px;font-size: 50px;"></p>
+                </div>
+                <div class="col"><button class="btn btn-primary" id="plus" type="button" style="margin: 40px;">+</button></div>
+                <div class="col"><button class="btn btn-primary" id="remote_audio_off" type="button" style="margin: 40px;height: 38px;width: 52.7188px;">OFF</button></div>
+                <div class="col"></div>
+            </div>
+            <div class="row" style="height: 38px;">
+                <div class="col" style="height: 78px;">
+                    <p id="mymode" style="margin: 5px;font-size: 24px;font-weight: bold;height: 23px;"></p>
+                </div>
+            </div>
+            <div class="row" style="height: 5px;">
+                <div class="col" style="height: 48px;width: 100px;"></div>
+                <div class="col" style="height: 48px;width: 100px;"><div><label for="s_units">s units: </label>
+    <meter id="#s_meter" low=1.0 high=10.0 value=".5">100%</meter></div></div>
+                <div class="col" style="height: 52px;width: 101px;">
+                    <p id="smeter_value">Paragraph</p>
+                </div>
+                <div class="col" style="height: 46px;width: 108px;">
+                    <p id="watts" style="width: 361px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 46px;width: 108px;"></div>
+            </div>
+            <div class="col" style="width: 331px;"></div>
+            <div class="row" style="height: 80px;">
+                <div class="col" style="height: 28px;"></div>
+                <div class="col"></div>
+                <div class="col" style="height: 28px;"></div>
+            </div>
+            <div class="row" style="height: 49px;">
+                <div class="col"></div>
+                <div class="col"><button class="btn btn-primary" id="scan_band_100" type="button">Scan Band 100 Hz</button></div>
+                <div class="col"><button class="btn btn-primary" id="auto_squelch" type="button">auto squelch</button></div>
+                <div class="col"><button class="btn btn-primary" id="scan_band_1000" type="button" style="height: 38px;">Scan Band 1Khz</button></div>
+                <div class="col"></div>
+            </div>
+            <div class="row" style="height: 40px;">
+                <div class="col" style="height: 78px;"><button class="btn btn-primary" id="bc" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">BC</button></div>
+                <div class="col" style="height: 78px;"><button class="btn btn-primary" id="160" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">160</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="80" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">80</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="60" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">60</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="40" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">40</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="30" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">30</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="20" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">20</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="17" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">17</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="15" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">15</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="12" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">12</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="10" type="button" style="height: 25px;width: 50.2812px;font-size: 15px;padding: 0px 12px;">10</button></div>
+            </div>
+            <div class="row" style="height: 41px;">
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="wwv025" type="button" style="height: 25px;width: 97.2812px;font-size: 15px;padding: 0px 12px;">WWV 2.5</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="wwv050" type="button" style="height: 25px;width: 94.2812px;font-size: 15px;padding: 0px 12px;">WWV 5.0</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="wwv10" type="button" style="height: 25px;width: 92.2812px;font-size: 15px;padding: 0px 12px;">WWV 10</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="wwv15" type="button" style="height: 25px;width: 93.2812px;font-size: 15px;padding: 0px 12px;">WWV 15</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="wwv20" type="button" style="height: 25px;width: 92.2812px;font-size: 15px;padding: 0px 12px;">WWV 20</button></div>
+                <div class="col" style="height: 30px;"><button class="btn btn-primary" id="wwv25" type="button" style="height: 25px;width: 95.2812px;font-size: 15px;padding: 0px 12px;">WWV 25</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="chu033" type="button" style="height: 25px;width: 96.2812px;font-size: 15px;padding: 0px 12px;">CHU 3.3</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="chu0785" type="button" style="height: 25px;width: 97.2812px;font-size: 15px;padding: 0px 12px;">CHU 7.85</button></div>
+                <div class="col" style="height: 31px;"><button class="btn btn-primary" id="chu14670" type="button" style="height: 25px;width: 110.2812px;font-size: 15px;padding: 0px 12px;">CHU 14.670</button></div>
+            </div>
+            <div class="row" style="height: 32px;">
+                <div class="col"><button class="btn btn-primary" id="volset" type="button">Vol_Set</button></div>
+                <div class="col">
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="volume" type="button" style="height: 38px;font-size: 16px;">Volume</button>
+                        <div class="dropdown-menu" id="volume_pick"><a class="dropdown-item" href="#">0</a><a class="dropdown-item" href="#">3</a><a class="dropdown-item" href="#">6</a><a class="dropdown-item" href="#">9</a><a class="dropdown-item" href="#">12</a><a class="dropdown-item" href="#">15</a><a class="dropdown-item" href="#">18</a><a class="dropdown-item" href="#">21</a><a class="dropdown-item" href="#">24</a><a class="dropdown-item" href="#">27</a><a class="dropdown-item" href="#">30</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="squelch" type="button" style="height: 38px;font-size: 16px;">Squelch</button>
+                        <div class="dropdown-menu" id="squelch_pick"><a class="dropdown-item" href="#">S0</a><a class="dropdown-item" href="#">S1</a><a class="dropdown-item" href="#">S2</a><a class="dropdown-item" href="#">S3</a><a class="dropdown-item" href="#">S4</a><a class="dropdown-item" href="#">S5</a><a class="dropdown-item" href="#">S6</a><a class="dropdown-item" href="#">S7</a><a class="dropdown-item" href="#">S8</a><a class="dropdown-item" href="#">S9</a><a class="dropdown-item" href="#">S10</a><a class="dropdown-item" href="#">S11</a><a class="dropdown-item" href="#">S12</a><a class="dropdown-item" href="#">S13</a><a class="dropdown-item" href="#">S14</a><a class="dropdown-item" href="#">S15</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="anr_notch" type="button" style="height: 38px;font-size: 16px;">ANR &amp; Notch</button>
+                        <div class="dropdown-menu" id="anr_notch_pick"><a class="dropdown-item" href="#">ANR ON</a><a class="dropdown-item" href="#"></a><a class="dropdown-item" href="#">NOTCH ON</a><a class="dropdown-item" href="#">ANR OFF</a><a class="dropdown-item" href="#">NOTCH OFF</a><a class="dropdown-item" href="#">ANR + NOTCH OFF</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_wide"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="font-size: 15px;">RX Filter AM/SSB</button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">8000</a><a class="dropdown-item" href="#">6000</a><a class="dropdown-item" href="#">5700</a><a class="dropdown-item" href="#">5400</a><a class="dropdown-item" href="#">5100</a><a class="dropdown-item" href="#">4800</a><a class="dropdown-item" href="#">4500</a><a class="dropdown-item" href="#">4200</a><a class="dropdown-item" href="#">3900</a><a class="dropdown-item" href="#">3600</a><a class="dropdown-item" href="#">3300</a><a class="dropdown-item" href="#">3000</a><a class="dropdown-item" href="#">2850</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_mid"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="font-size: 15px;">RX Filter SSB/CW</button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">2700</a><a class="dropdown-item" href="#">2550</a><a class="dropdown-item" href="#">2400</a><a class="dropdown-item" href="#">2250</a><a class="dropdown-item" href="#">2100</a><a class="dropdown-item" href="#">1950</a><a class="dropdown-item" href="#">1800</a><a class="dropdown-item" href="#">1650</a><a class="dropdown-item" href="#">1500</a><a class="dropdown-item" href="#">1350</a><a class="dropdown-item" href="#">1200</a><a class="dropdown-item" href="#">1050</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_tight"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="font-size: 15px;">RX Filter CW N</button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">900</a><a class="dropdown-item" href="#">750</a><a class="dropdown-item" href="#">675</a><a class="dropdown-item" href="#">600</a><a class="dropdown-item" href="#">525</a><a class="dropdown-item" href="#">450</a><a class="dropdown-item" href="#">375</a><a class="dropdown-item" href="#">330</a><a class="dropdown-item" href="#">300</a></div>
+                    </div>
+                </div>
+                <div class="col"><button class="btn btn-primary" id="filterset" type="button">Filter_set</button></div>
+            </div>
+            <div class="row" style="height: 39px;">
+                <div class="col">
+                    <p id="vol_set_value">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="volume_value" style="width: 122px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="squelch_value" style="width: 116px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="anr_notch_value" style="width: 102px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="rx_filter_am_ssb_value" style="width: 121px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="rx_filter_ssb_cw_value">Paragraph</p>
+                </div>
+                <div class="col" style="height: 16px;">
+                    <p id="rx_filter_cw_n_value">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="filter_set_value">Paragraph</p>
+                </div>
+            </div>
+            <div class="row" style="height: 30px;">
+                <div class="col">
+                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="transmit_enable" type="button" style="height: 38px;font-size: 16px;">Transmit Enable</button>
+                        <div class="dropdown-menu" id="transmit_enable_pick"><a class="dropdown-item" href="#">Enable Transmitter</a><a class="dropdown-item" href="#">Disable Transmitter</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_wide-1"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="transmit_power" type="button" style="font-size: 15px;">Transmit Power</button>
+                        <div class="dropdown-menu" id="transmit_power_pick"><a class="dropdown-item" href="#">1 watts</a><a class="dropdown-item" href="#">5 watts</a><a class="dropdown-item" href="#">10 watts</a><a class="dropdown-item" href="#">15 watts</a><a class="dropdown-item" href="#">20 watts</a><a class="dropdown-item" href="#">25 watts</a><a class="dropdown-item" href="#">30 watts</a><a class="dropdown-item" href="#">40 watts</a><a class="dropdown-item" href="#">50 watts</a><a class="dropdown-item" href="#">60 watts</a><a class="dropdown-item" href="#">70 watts</a><a class="dropdown-item" href="#">80 watts</a><a class="dropdown-item" href="#">90 watts</a><a class="dropdown-item" href="#">100 watts</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="tx_filter_bandwidth_dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="transmit_bandwidth" type="button" style="font-size: 15px;">Transmit Bandwidth</button>
+                        <div class="dropdown-menu" id="transmit_bandwidth_pick"><a class="dropdown-item" href="#">3900</a><a class="dropdown-item" href="#">3600</a><a class="dropdown-item" href="#">3300</a><a class="dropdown-item" href="#">3000</a><a class="dropdown-item" href="#">2850</a><a class="dropdown-item" href="#">2700</a><a class="dropdown-item" href="#">2550</a><a class="dropdown-item" href="#">2400</a><a class="dropdown-item" href="#">2250</a><a class="dropdown-item" href="#">2100</a><a class="dropdown-item" href="#">1950</a><a class="dropdown-item" href="#">1800</a><a class="dropdown-item" href="#">1650</a><a class="dropdown-item" href="#">1500</a><a class="dropdown-item" href="#">1350</a><a class="dropdown-item" href="#">1200</a><a class="dropdown-item" href="#">1050</a><a class="dropdown-item" href="#">900</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_mid-1"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="mic_gain" type="button" style="font-size: 15px;">Mic Gain</button>
+                        <div class="dropdown-menu" id="mic_gain_pick"><a class="dropdown-item" href="#">0%</a><a class="dropdown-item" href="#">6%</a><a class="dropdown-item" href="#">14%</a><a class="dropdown-item" href="#">20%</a><a class="dropdown-item" href="#">26%</a><a class="dropdown-item" href="#">33%</a><a class="dropdown-item" href="#">40%</a><a class="dropdown-item" href="#">46%</a><a class="dropdown-item" href="#">53%</a><a class="dropdown-item" href="#">60%</a><a class="dropdown-item" href="#">66%</a><a class="dropdown-item" href="#">73%</a><a class="dropdown-item" href="#">80%</a><a class="dropdown-item" href="#">86%</a><a class="dropdown-item" href="#">93%</a><a class="dropdown-item" href="#">100%</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_mid-2"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="speech_processor" type="button" style="font-size: 15px;">Speech Processor</button>
+                        <div class="dropdown-menu" id="speech_processor_pick"><a class="dropdown-item" href="#">OFF</a><a class="dropdown-item" href="#">10%</a><a class="dropdown-item" href="#">20%</a><a class="dropdown-item" href="#">30%</a><a class="dropdown-item" href="#">40%</a><a class="dropdown-item" href="#">50%</a><a class="dropdown-item" href="#">60%</a><a class="dropdown-item" href="#">70%</a><a class="dropdown-item" href="#">80%</a><a class="dropdown-item" href="#">90%</a><a class="dropdown-item" href="#">100%</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_mid-3"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="cw_sidetone" type="button" style="font-size: 15px;">CW Side</button>
+                        <div class="dropdown-menu" id="cw_sidetone_pick"><a class="dropdown-item" href="#">OFF</a><a class="dropdown-item" href="#">10%</a><a class="dropdown-item" href="#">20%</a><a class="dropdown-item" href="#">30%</a><a class="dropdown-item" href="#">40%</a><a class="dropdown-item" href="#">50%</a><a class="dropdown-item" href="#">60%</a><a class="dropdown-item" href="#">70%</a><a class="dropdown-item" href="#">80%</a><a class="dropdown-item" href="#">90%</a><a class="dropdown-item" href="#">100%</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_tight-1"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="tx_monitor" type="button" style="font-size: 15px;">TX Monitor</button>
+                        <div class="dropdown-menu" id="tx_monitor_pick"><a class="dropdown-item" href="#">0%</a><a class="dropdown-item" href="#">15%</a><a class="dropdown-item" href="#">30%</a><a class="dropdown-item" href="#">45%</a><a class="dropdown-item" href="#">60%</a><a class="dropdown-item" href="#">75%</a><a class="dropdown-item" href="#">90%</a><a class="dropdown-item" href="#">100%</a></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown" id="rx_filter_tight-2"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" id="tune_transmitter" type="button" style="font-size: 15px;">Tune Transmitter</button>
+                        <div class="dropdown-menu" id="tune_transmitter_pick"><a class="dropdown-item" href="#">TRANSMIT ON</a><a class="dropdown-item" href="#">TRANSMIT OFF</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 42px;">
+                <div class="col" style="height: 15px;">
+                    <p id="transmit_enable_value" style="width: 155.57px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="transmit_power_value" style="width: 131.57px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 16px;">
+                    <p id="transmit_bandwidth_value" style="width: 201.57px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="mic_gain_value" style="width: 81.57px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="speech_processor_value" style="width: 109.57px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="cw_sidetone_value" style="width: 116.57px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="tx_monitor_value" style="width: 97.859px;">Paragraph</p>
+                </div>
+                <div class="col" style="height: 15px;">
+                    <p id="tune_transmitter_value" style="width: 102.859px;">Paragraph</p>
+                </div>
+            </div>
+            <div class="row" style="height: 65px;">
+                <div class="col"><button class="btn btn-primary" id="Ant_tuner_bypass" type="button" style="width: 152px;">Ant tuner bypass</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_autotune" type="button" style="width: 125px;">Ant autotune</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_C_up" type="button">Ant C up</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_C_down" type="button">Ant C down</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_L_up" type="button">Ant L up</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_L_down" type="button">Ant L down</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_High_Z" type="button">Ant High Z</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_Low_Z" type="button">Ant Low Z</button></div>
+            </div>
+            <div class="row" style="height: 65px;">
+                <div class="col"><button class="btn btn-primary" id="Ant_160" type="button" style="width: 86px;">Ant 160</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_80" type="button">Ant 80</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_60" type="button">Ant 60</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_40" type="button">Ant 40</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_30" type="button">Ant 30</button></div>
+                <div class="col" id="Ant_30"><button class="btn btn-primary" id="Ant_20" type="button">Ant 20</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_17" type="button">Ant 17</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_15" type="button">Ant 15</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_12" type="button">Ant 12</button></div>
+                <div class="col"><button class="btn btn-primary" id="Ant_10" type="button">Ant 10</button></div>
+            </div>
+            <div class="row" style="height: 200px;">
+                <div class="col"></div>
+                <div class="col">
+                    <p id="active_qso" style="height: 205px;width: 410px;"></p>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/remoteTransciver.js"></script>
+</body>
+
+</html>
